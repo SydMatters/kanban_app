@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button"
 
 export default function Register() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-screen">
     <Card className="border border-pink-600 w-full max-w-md space-y-6">
       <CardHeader>
         <CardTitle>Create an Account</CardTitle>
