@@ -8,14 +8,8 @@ import Task from "../components/Home/task";
 
 export default function Home() {
   return (
-<<<<<<< HEAD
-    <main>
-      
-    </main>
-=======
    <main>
      <Login />
    </main>
->>>>>>> 90fb31607f4a9c32315c1e842f4b40c968a79c4d
   );
 }
