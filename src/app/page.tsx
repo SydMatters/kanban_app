@@ -20,11 +20,10 @@ export default function Home() {
    <main>
      <Login />
      { data?.map (user => (
-      <div>
+      <div key={user.user_id}>
         <p>{user.user_name}</p>
       </div>
       )) }
    </main>
-
   );
 }
