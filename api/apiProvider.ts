@@ -15,6 +15,17 @@ export const kanbanApi = createApi({
                 body: sectionToPatch
              }
             )
+        }),
+        getUserById: builder.query<User, User>({
+            query: ({user_id}) => `api/users/${user_id}`,
+        }),
+
+        getSections: builder.query<User, User>({
+            query: ({user_id}) => `api/users/${user_id}/sections`,
+        }),
+
+        getSectionById: builder.query<User, User & Section>({
+            query: ({user_id, section_id}) => `api/users/${user_id}/sections/${section_id}`,
         })
         })
 })
