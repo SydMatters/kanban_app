@@ -24,7 +24,7 @@ export default function RootLayout({
       <body  className={`min-h-screen  ${inter.className}`} >{children}
 
       <NavBar />
-      <div className="flex ">
+      <div className="flex">
          <SideBar />
          <Header />
       </div>
