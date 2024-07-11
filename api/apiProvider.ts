@@ -14,7 +14,7 @@ export const kanbanApi = createApi({
         })
     })
 })
-
+ 
 export const { useGetUsersQuery } = kanbanApi;
 
 export default kanbanApi;
