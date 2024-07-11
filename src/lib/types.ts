@@ -15,3 +15,5 @@ export interface Task {
   task_name: string;
   section_id: number;
 }
+
+export type id = number

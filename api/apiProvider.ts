@@ -6,8 +6,16 @@ export const kanbanApi = createApi({
     baseQuery: fetchBaseQuery ({ baseUrl: 'https://api-kanban-zgyh.onrender.com/'}),
     endpoints: (builder) => ({
         getUsers: builder.query<User[], void>({
-            query: () => 'api/users',
+            query: () => '/',
         }),
+        patchSections: builder.mutation<Section, {id: number; section_id: number}>({
+            query: ({id, section_id, ...sectionToPatch}) => ({
+                url: `api/users/${id}/sections/${section_id}`,
+                method: 'PATCH',
+                body: sectionToPatch
+             }
+            )
+        })
         })
 })
  
