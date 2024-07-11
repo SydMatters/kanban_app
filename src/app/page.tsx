@@ -1,15 +1,14 @@
 import Image from "next/image";
-import Register from "../components/Register/register";
-import Login from "../components/Login/login";
-import NavBar from "../components/Home/navBar";
-import Footer from "../components/Home/footer"
-import SideBar from "../components/Home/sideBar"
-import Task from "../components/Home/task";
+import Register from "../components/Register/Register";
+import Login from "../components/Login/Login";
+import NavBar from "../components/Home/NavBar";
+import Footer from "../components/Home/Footer"
+import SideBar from "../components/Home/SideBar"
 
 export default function Home() {
   return (
    <main>
-     <Login />
+    {/* <Register /> */}
    </main>
   );
 }

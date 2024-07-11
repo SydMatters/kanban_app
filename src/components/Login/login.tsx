@@ -1,7 +1,7 @@
 
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/Label"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
 
 export default function Login() {
   return (
@@ -18,7 +18,7 @@ export default function Login() {
             <Label htmlFor="password">Password</Label>
             <Input id="password" type="password" placeholder="Enter your password" />
           </div>
-          <Button className="w-full">Log in</Button>
+          <Button className="bg-pink-600 w-full">Log in</Button>
         </div>
         <p className="text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our{" "}

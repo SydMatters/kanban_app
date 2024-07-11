@@ -1,13 +1,13 @@
 "use client"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/Card"
+import { Label } from "@/components/ui/Label"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
 
 export default function Register() {
   return (
     <div className="flex justify-center items-center">
-    <Card className="w-full max-w-md space-y-6">
+    <Card className="border border-pink-600 w-full max-w-md space-y-6">
       <CardHeader>
         <CardTitle>Create an Account</CardTitle>
         <CardDescription>Enter your details below to create a new account</CardDescription>
@@ -25,7 +25,7 @@ export default function Register() {
           <Label htmlFor="password">Password</Label>
           <Input id="password" type="password" placeholder="Enter your password" />
         </div>
-        <Button className="w-full">Create!</Button>
+        <Button className="bg-pink-600 w-full">Create!</Button>
       </CardContent>
       <CardFooter className="text-center text-sm text-muted-foreground">
         By clicking continue, you agree to our{" "}
@@ -36,7 +36,6 @@ export default function Register() {
         <a href="#" className="underline">
           Privacy Policy
         </a>
-        .
       </CardFooter>
     </Card>
     </div>
