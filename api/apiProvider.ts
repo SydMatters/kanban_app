@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-interface user{
-    user_name: string,
-    email: string,
-    password: string
-}
+import {user} from '../src/lib/types'
 
 export const kanbanApi = createApi({
     reducerPath: 'KanbanApi',
