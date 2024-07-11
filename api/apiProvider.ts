@@ -7,8 +7,8 @@ export const kanbanApi = createApi({
     endpoints: (builder) => ({
         getUsers: builder.query<User[], void>({
             query: () => 'api/users',
+        }),
         })
-    })
 })
  
 export const { useGetUsersQuery } = kanbanApi;
