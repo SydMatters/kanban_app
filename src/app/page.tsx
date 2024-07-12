@@ -1,5 +1,5 @@
 'use client'
-import Login from '../components/Login/Login'
+import Login from "@/components/Login/login";
 import { useGetUsersQuery } from "../../api/apiProvider";
 
 export default function Home() {

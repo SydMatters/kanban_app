@@ -1,15 +1,10 @@
 "use client"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/Card'
-import { Label } from '../ui/Label'
-import { Input } from '../ui/Input'
-import { Button } from '../ui/Button'
-import { useRegisterMutation } from "../../../api/apiProvider"
-import { useState } from 'react'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/card'
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
+import { Label } from '../ui/label'
 
 export default function Register() {
-  const [userName, setUserName]= useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
   return (
     <div className="flex justify-center items-center h-screen">
     <Card className="border border-pink-600 w-full  max-w-md space-y-6">
@@ -20,17 +15,17 @@ export default function Register() {
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="username">Username</Label>
-          <Input id="username" placeholder="Enter your username" onChange={(e) => setUserName(e.target.value)} />
+          <Input id="username" placeholder="Enter your username" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" placeholder="demo@gmail.com" onChange={(e) => setEmail(e.target.value)} />
+          <Input id="email" placeholder="demo@gmail.com" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
+          <Input id="password" type="password" placeholder="Enter your password"  />
         </div>
-        <Button className="text-white bg-pink-600 w-full" onClick={useRegisterMutation(email, password)} >Create!!!</Button>
+        <Button className="text-white bg-pink-600 w-full" >Create!!!</Button>
         <div className="w-full flex justify-center"><a href="/login">Login</a></div>
       </CardContent>
       <CardFooter className="text-center text-sm text-muted-foreground">

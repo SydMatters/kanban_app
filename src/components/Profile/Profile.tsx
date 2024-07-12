@@ -1,9 +1,9 @@
 
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/Dialog"
-import { Button } from '../ui/Button'
-import { Label } from '../ui/Label'
-import { Input } from '../ui/Input'
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from '../ui/dialog'
 import { Textarea } from '../ui/TextTarea'
+import { Input } from "../ui/input"
+import { Label } from "../ui/label"
+import { Button } from "../ui/button"
 
 
 export default function Profile() {
