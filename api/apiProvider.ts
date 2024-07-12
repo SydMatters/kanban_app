@@ -115,6 +115,6 @@ export const kanbanApi = createApi({
 })
 
 
-export const { useGetUsersQuery, useKanbanQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation, useCreateTaskMutation,usePatchSectionsMutation, usePatchTasksMutation, usePostSectionsMutation, usePostTasksMutation ,useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
+export const { useLoginMutation, useRegisterMutation, useGetUsersQuery, useKanbanQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation, useCreateTaskMutation,usePatchSectionsMutation, usePatchTasksMutation, usePostSectionsMutation, usePostTasksMutation ,useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
 
 export default kanbanApi;

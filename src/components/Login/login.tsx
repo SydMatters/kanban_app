@@ -1,9 +1,13 @@
 
+import React, { useState, useEffect } from 'react';
 import { Label } from '../ui/Label'
 import { Input } from '../ui/Input'
 import { Button } from '../ui/Button'
+import { useLoginMutation } from "../../../api/apiProvider"
 
 export default function Login() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="border border-pink-600 p-8 rounded-lg w-full max-w-md space-y-6">
@@ -12,14 +16,14 @@ export default function Login() {
         <div className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" placeholder="demo@gmail.com" />
+            <Input id="email" placeholder="demo@gmail.com" onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="Enter your password" />
+            <Input id="password" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <Button className="text-white bg-pink-600 w-full">Log in</Button>
-          <div className="w-full flex justify-center"><a href="/Register">Register</a></div>
+          <Button className="text-white bg-pink-600 w-full" onClick={useLoginMutation(email, password)} >Log in</Button>
+          <div className="w-full flex justify-center"><a href="/register">Register</a></div>
         </div> 
         <p className="text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our{" "}
