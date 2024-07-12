@@ -17,12 +17,15 @@ export const kanbanApi = createApi({
             query: ({user_id, section_id, task_id}) => `api/users/${user_id}/sections/${section_id}/tasks/${task_id}`,
         }),
 
-        createSection: builder.query<Section[], User>({
-            query: ({user_id}) => `api/users/${user_id}/sections`,
+        createSection: builder.mutation<Section & User, User & Section>({
+            query: ({user_id}) => ({
+                url: `api/users/${user_id}/sections`,
+                method:'POST'
+            }),
         })
     })
 })
  
-export const { useGetUsersQuery } = kanbanApi;
+export const { useGetUsersQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation } = kanbanApi;
 
 export default kanbanApi;
