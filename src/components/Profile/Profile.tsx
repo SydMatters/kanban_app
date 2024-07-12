@@ -10,7 +10,7 @@ export default function Profile() {
     return (
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="px-2">Profile</Button>
+          <Button className="p-0">Profile</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
