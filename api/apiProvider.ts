@@ -43,15 +43,17 @@ export const kanbanApi = createApi({
       query: ({ user_id, section_id, task_id }) => `api/users/${user_id}/sections/${section_id}/tasks/${task_id}`,
     }),
     createSection: builder.mutation<Section & User, User & Section>({
-      query: ({ user_id }) => ({
+      query: ({ user_id, title }) => ({
         url: `api/users/${user_id}/sections`,
-        method: 'POST'
+        method: 'POST',
+        body: {title: title}
       }),
     }),
     createTask: builder.mutation<Section & User & Task, User & Section>({
-      query: ({ user_id, section_id }) => ({
+      query: ({ user_id, section_id, title }) => ({
         url: `api/users/${user_id}/sections/${section_id}/tasks`,
-        method: 'POST'
+        method: 'POST',
+        body: {title: title}
       }),
     }),
     patchSections: builder.mutation<Section, { id: number; section_id: number }>({

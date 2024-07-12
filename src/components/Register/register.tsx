@@ -4,11 +4,14 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useRegisterMutation } from "../../../api/apiProvider"
+import React, { useState } from 'react';
 
 export default function Register() {
   const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [register, { isLoading, error }] = useRegisterMutation();
+
   return (
     <div className="flex justify-center items-center h-screen">
     <Card className="border border-pink-600 w-full  max-w-md space-y-6">
@@ -29,7 +32,7 @@ export default function Register() {
           <Label htmlFor="password">Password</Label>
           <Input id="password" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <Button className="text-white bg-pink-600 w-full" onClick={useRegisterMutation(email, password)} >Create!!!</Button>
+        <Button className="text-white bg-pink-600 w-full" onClick={() => register({email, password})} >Create!!!</Button>
         <div className="w-full flex justify-center"><a href="/login">Login</a></div>
       </CardContent>
       <CardFooter className="text-center text-sm text-muted-foreground">

@@ -1,5 +1,4 @@
 "use client"
-
 import { useMemo, useState } from "react";
 import ColumnContainer from "./ColumnContainer";
 import {
@@ -17,7 +16,17 @@ import { createPortal } from "react-dom";
 import TaskCard from "./TaskCard";
 import PlusIcon from "@/icons/PlusIcon";
 import { Column, Id, Task } from "../types";
-
+import { useCreateSectionMutation, 
+  useDeleteSectionMutation, 
+  useCreateTaskMutation, 
+  useDeleteTaskMutation,
+  usePatchSectionsMutation,
+  usePatchTasksMutation,
+  usePostSectionsMutation,
+  usePostTasksMutation,
+  useGetSectionsQuery} 
+  from "../../../api/apiProvider";
+const userId = 1
 const defaultCols: Column[] = [
   {
     id: "todo",
@@ -42,6 +51,11 @@ function Kanban() {
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
 
   const [activeTask, setActiveTask] = useState<Task | null>(null);
+
+  const [createSectionMutation] = useCreateSectionMutation();
+  const [createTaskMutation] = useCreateTaskMutation();
+  const [deleteTaskMutation] = useDeleteTaskMutation();
+  const [updateTaskMutation] = useUpdateTaskMutation();
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -149,11 +163,14 @@ function Kanban() {
     };
 
     setTasks([...tasks, newTask]);
+    createTaskMutation({userId, columnId, newTask.content});  
   }
 
   function deleteTask(id: Id) {
     const newTasks = tasks.filter((task) => task.id !== id);
     setTasks(newTasks);
+    deleteTaskMutation({userId, id});  
+
   }
 
   function updateTask(id: Id, content: string) {
@@ -163,6 +180,7 @@ function Kanban() {
     });
 
     setTasks(newTasks);
+    usePatchTasksMutation({userId, section_id, id, content});
   }
 
   function createNewColumn() {
@@ -172,6 +190,7 @@ function Kanban() {
     };
 
     setColumns([...columns, columnToAdd]);
+    useCreateSectionMutation({userId, columnToAdd.tile});
   }
 
   function deleteColumn(id: Id) {
@@ -180,6 +199,7 @@ function Kanban() {
 
     const newTasks = tasks.filter((t) => t.columnId !== id);
     setTasks(newTasks);
+    useDeleteSectionMutation({userID, id})
   }
 
   function updateColumn(id: Id, title: string) {
@@ -189,6 +209,7 @@ function Kanban() {
     });
 
     setColumns(newColumns);
+    usePatchSectionsMutation({userID, id, title})
   }
 
   function onDragStart(event: DragStartEvent) {

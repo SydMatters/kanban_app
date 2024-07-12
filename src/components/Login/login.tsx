@@ -1,13 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useLoginMutation } from "../../../api/apiProvider"
 
 export default function Login() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [login, { isLoading, error }] = useLoginMutation();
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="border border-pink-600 p-8 rounded-lg w-full max-w-md space-y-6">
@@ -22,7 +24,7 @@ export default function Login() {
             <Label htmlFor="password">Password</Label>
             <Input id="password" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <Button className="text-white bg-pink-600 w-full" onClick={useLoginMutation(email, password)} >Log in</Button>
+          <Button className="text-white bg-pink-600 w-full" onClick={() => login({ email, password })} >Log in</Button>
           <div className="w-full flex justify-center"><a href="/register">Register</a></div>
         </div> 
         <p className="text-center text-sm text-muted-foreground">
@@ -31,6 +33,7 @@ export default function Login() {
             Terms of Service
           </a>
           and{" "}
+
           <a href="#" className="underline">
             Privacy Policy
           </a>
