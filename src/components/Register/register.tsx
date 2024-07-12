@@ -1,8 +1,8 @@
 "use client"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/card'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/Card'
 import { Label } from '../ui/Label'
-import { Input } from '../ui/input'
-import { Button } from '../ui/button'
+import { Input } from '../ui/Input'
+import { Button } from '../ui/Button'
 
 export default function Register() {
   return (

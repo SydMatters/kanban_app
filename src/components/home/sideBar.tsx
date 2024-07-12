@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
-import KanbanIcon from "../../icons/kanbanIcon"
-import UserIcon from "../../icons/userIcon"
-import LogoutIcon from "../../icons/logoutIcon"
-import Profile from "@/components/Profile/Profile";
+import KanbanIcon from "../../icons/KanbanIcon"
+import UserIcon from "../../icons/UserIcon"
+import LogoutIcon from "../../icons/LogoutIcon"
+import Profile from "../Profile/Profile";
 
 export default function SideBar() {
   return (
