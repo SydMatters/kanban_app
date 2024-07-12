@@ -6,6 +6,7 @@ import SideBar from "@/components/Home/SideBar";
 import Footer from "@/components/Home/Footer";
 import Profile from "@/components/Profile/Profile";
 import Header from "@/components/Home/Header";
+import Login from "@/components/Login/Login";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,14 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body  className={`min-h-screen  ${inter.className}`} >{children}
-
-      <NavBar />
-      <div className="flex">
-         <SideBar />
-         <Header />
-      </div>
-      <Footer />
+      <body  className={`h-screen overflow-y-hidden ${inter.className}`} >
+      {children}
+      <Login/>
       </body>
     </html>
   );

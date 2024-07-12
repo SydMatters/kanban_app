@@ -7,8 +7,7 @@ import Profile from "@/components/Profile/Profile";
 
 export default function SideBar() {
   return (
-    <div className="flex h-full w-60 ">
-      <aside className="flex h-full  w-60 flex-col items-start justify-between border-r bg-background p-4 shadow-md">
+      <aside className="h-full relative flex w-60 flex-col items-start justify-between border-r bg-background p-4 shadow-md">
         <nav className="flex flex-col items-start gap-2 w-full">
           <Link
             href="#"
@@ -37,7 +36,5 @@ export default function SideBar() {
           
         </nav>
       </aside>
-      
-    </div>
   )
 }

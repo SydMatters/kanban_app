@@ -18,7 +18,7 @@ export default function Login() {
             <Label htmlFor="password">Password</Label>
             <Input id="password" type="password" placeholder="Enter your password" />
           </div>
-          <Button className="text-white-400 bg-pink-600 w-full">Log in</Button>
+          <Button className="text-white bg-pink-600 w-full">Log in</Button>
         </div>
         <p className="text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our{" "}

@@ -25,7 +25,7 @@ export default function Register() {
           <Label htmlFor="password">Password</Label>
           <Input id="password" type="password" placeholder="Enter your password" />
         </div>
-        <Button className="bg-pink-600 w-full">Create!</Button>
+        <Button className="text-white bg-pink-600 w-full">Create!</Button>
       </CardContent>
       <CardFooter className="text-center text-sm text-muted-foreground">
         By clicking continue, you agree to our{" "}
