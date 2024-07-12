@@ -10,8 +10,10 @@ const Home = () => {
             <NavBar />
             <div className="flex">
             <SideBar />
-            <Header /> 
-            <Kanban />
+            <div className='flex flex-col'>
+                <Header /> 
+                <Kanban />
+            </div>
             </div>  
         </div>
     );

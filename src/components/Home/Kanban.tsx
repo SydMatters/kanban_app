@@ -54,14 +54,13 @@ function Kanban() {
   return (
     <div
       className="
-        m-auto
         flex
         min-h-screen
         w-full
         items-center
         overflow-x-auto
         overflow-y-hidden
-        px-[40px]
+        px-[80px]
     "
     >
       <DndContext
@@ -70,7 +69,7 @@ function Kanban() {
         onDragEnd={onDragEnd}
         onDragOver={onDragOver}
       >
-        <div className="m-auto flex gap-4">
+        <div className="flex gap-4">
           <div className="flex gap-4">
             <SortableContext items={columnsId}>
               {columns.map((col) => (

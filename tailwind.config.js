@@ -9,7 +9,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "mainBackgroundColor": '#db277733',
+        "columnBackgroundColor": "#db277788",
+      }
+    },
   },
   plugins: [require("tailwindcss-animate")],
 }
