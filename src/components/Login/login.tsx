@@ -1,26 +1,63 @@
+"use client"
 
-import { Label } from '../ui/label'
+import { Label } from '../ui/label';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+// Definición de userSchema (verifica que esto esté en tu archivo de validaciones)
+export const userSchema = z.object({
+  email: z.string().email({
+      message: 'Invalid email'
+  }),
+  password: z.string().min(6,{
+      message: 'Password must be at least 6 characters long'
+  }),
+})
+
 
 export default function Login() {
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(userSchema),
+  });
+
+  const onSubmit = (data) => {
+    console.log('Form submitted with data:', data);  // Añadido mensaje para depuración
+    // Aquí puedes agregar la lógica para manejar el inicio de sesión
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="border border-pink-600 p-8 rounded-lg w-full max-w-md space-y-6">
         <h2 className="text-2xl font-bold text-center">Welcome to Kanban</h2>
         <p className="text-center text-muted-foreground">Enter your email below to log in to your account</p>
-        <div className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" placeholder="demo@gmail.com"/>
+            <Input
+              id="email"
+              placeholder="demo@gmail.com"
+              {...register('email')}
+              className={`border ${errors.email ? 'border-red-600' : ''}`}
+            />
+            {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="Enter your password"/>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              {...register('password')}
+              className={`border ${errors.password ? 'border-red-600' : ''}`}
+            />
+            {errors.password && <p className="text-red-600 text-sm">{errors.password.message}</p>}
           </div>
-          <Button className="text-white bg-pink-600 w-full" >Log in</Button>
+          <Button type="submit" className="text-white bg-pink-600 w-full">Log in</Button>
           <div className="w-full flex justify-center"><a href="/register">Register</a></div>
-        </div> 
+        </form>
         <p className="text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our{" "}
           <a href="#" className="underline">
@@ -34,5 +71,5 @@ export default function Login() {
         </p>
       </div>
     </div>
-  )
+  );
 }
