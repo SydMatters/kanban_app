@@ -1,10 +1,16 @@
-
 import React from 'react';
+import NavBar from '@/components/Home/navBar';
+import SideBar from '@/components/Home/sideBar';
+import Header from '@/components/Home/Header';
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
+        <div className='h-screen overflow-y-hidden'>
+            <NavBar />
+            <div className="flex">
+            <SideBar />
+            <Header /> 
+            </div>  
         </div>
     );
 };
