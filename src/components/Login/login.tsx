@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
+
+
 // Definición de userSchema (verifica que esto esté en tu archivo de validaciones)
 export const userSchema = z.object({
   email: z.string().email({

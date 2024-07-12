@@ -7,6 +7,10 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
+import { useRegisterMutation } from "../../../api/apiProvider";
+
+
+
 
 // Definir el esquema de validación con Zod
 const registrationSchema = z.object({
@@ -16,17 +20,35 @@ const registrationSchema = z.object({
 });
 
 export default function Register() {
+
+  const [data,{isLoading}] = useRegisterMutation();
+
   // Configurar useForm con React Hook Form y Zod
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(registrationSchema),
   });
 
   // Función que se llama al enviar el formulario
-  const onSubmit = async (data) => {
+ /* const onSubmit = async (data) => {
     console.log('Form submitted with data:', data);
     // Aquí puedes agregar la lógica para manejar el registro del usuario
   };
+*/
 
+  const onSubmit = async (datas) => {
+    
+    console.log('Form submitted with data:', datas);
+
+    const { name, email, password } = datas;
+
+    try {
+       data({ name, email, password }).unwrap();
+       console.log('Registered successfully!');
+    } catch (err) {
+      console.error('Failed to register:', err);
+    }
+  }; 
+  
   return (
     <div className="flex justify-center items-center h-screen">
       <Card className="border border-pink-600 w-full max-w-md space-y-6">
