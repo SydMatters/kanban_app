@@ -17,9 +17,9 @@ export const kanbanApi = createApi({
             )
         }),
 
-        patchTasks: builder.mutation<Task, {id: number, task_id: number}>({
-            query: ({id, task_id, ...taskToPatch}) => ({
-                url: `api/users/${id}/tasks/${task_id}`,
+        patchTasks: builder.mutation<Task, {id: number, task_id: number, section_id: number}>({
+            query: ({id, section_id, task_id, ...taskToPatch}) => ({
+                url: `api/users/${id}/sections/${section_id}/tasks/${task_id}`,
                 method: 'PATCH',
                 body: taskToPatch
             })
