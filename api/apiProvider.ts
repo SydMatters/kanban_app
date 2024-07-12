@@ -1,11 +1,37 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { User, Section, Task } from '../src/lib/types'
+import { log } from 'console';
 
 
 export const kanbanApi = createApi({
   reducerPath: 'KanbanApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://api-kanban-zgyh.onrender.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://api-kanban-a3g5.onrender.com/' }),
   endpoints: (builder) => ({
+    login:builder.mutation<User, { email: string, password: string }>({
+      query: ({ email, password }) => ({
+        url: 'login',
+        method: 'POST',
+        body: { email, password }
+      })
+    }),
+    register: builder.mutation<User, { name: string,email: string, password: string }>({
+      query: ({ name, email, password }) => ({
+        url: 'register',
+        method: 'POST',
+        body: {name, email, password}
+      })
+    }),
+    logout: builder.mutation<User, void>({
+      query: () => ({
+        url: 'logout',
+        method: 'POST'
+      })
+    }),
+
+    kanban: builder.query<User, void>({
+      query: () => 'api/kanban'
+    }),
+
     getUsers: builder.query<User[], void>({
       query: () => 'api/users',
     }),
@@ -89,6 +115,6 @@ export const kanbanApi = createApi({
 })
 
 
-export const { useGetUsersQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation, useCreateTaskMutation,usePatchSectionsMutation, usePatchTasksMutation, usePostSectionsMutation, usePostTasksMutation ,useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
+export const { useGetUsersQuery, useKanbanQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation, useCreateTaskMutation,usePatchSectionsMutation, usePatchTasksMutation, usePostSectionsMutation, usePostTasksMutation ,useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
 
 export default kanbanApi;
