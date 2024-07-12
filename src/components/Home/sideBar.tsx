@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
-import KanbanIcon from "../../icons/KanbanIcon"
-import UserIcon from "../../icons/UserIcon"
-import LogoutIcon from "../../icons/LogoutIcon"
 import Profile from "../Profile/Profile";
+import KanbanIcon from "@/icons/kanbanIcon";
+import LogOutIcon from "@/icons/logoutIcon";
+import UserIcon from "@/icons/userIcon";
 
 export default function SideBar() {
   return (
@@ -15,7 +15,7 @@ export default function SideBar() {
             className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-pink-600 hover:text-white-700 hover:text-white "
             prefetch={false}
           >
-            <KanbanIcon />
+            <KanbanIcon/>
             <span>Kanban</span>
           </Link>
           <Link
@@ -31,7 +31,7 @@ export default function SideBar() {
             className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-pink-600 hover:text-white"
             prefetch={false}
           > 
-            <LogoutIcon />
+            <LogOutIcon />
             <span>Logout</span>
           </Link>
           
