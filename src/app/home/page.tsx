@@ -1,7 +1,8 @@
 import React from 'react';
 import NavBar from '@/components/Home/navBar';
-import SideBar from '@/components/Home/sideBar';
 import Header from '@/components/Home/Header';
+import SideBar from '@/components/Home/sideBar';
+import Kanban from '@/components/Home/Kanban';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <div className="flex">
             <SideBar />
             <Header /> 
+            <Kanban />
             </div>  
         </div>
     );
