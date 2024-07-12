@@ -16,22 +16,18 @@ export const kanbanApi = createApi({
     getTask: builder.query<Task, (User & Section & Task)>({
       query: ({ user_id, section_id, task_id }) => `api/users/${user_id}/sections/${section_id}/tasks/${task_id}`,
     }),
-
     createSection: builder.mutation<Section & User, User & Section>({
       query: ({ user_id }) => ({
         url: `api/users/${user_id}/sections`,
         method: 'POST'
       }),
     }),
-
     createTask: builder.mutation<Section & User & Task, User & Section>({
       query: ({ user_id, section_id }) => ({
         url: `api/users/${user_id}/sections/${section_id}/tasks`,
         method: 'POST'
       }),
     }),
-
-
     patchSections: builder.mutation<Section, { id: number; section_id: number }>({
       query: ({ id, section_id, ...sectionToPatch }) => ({
         url: `api/users/${id}/sections/${section_id}`,
@@ -40,6 +36,30 @@ export const kanbanApi = createApi({
       }
       )
     }),
+
+    patchTasks: builder.mutation<Task, { id: number, task_id: number, section_id: number }>({
+      query: ({ id, section_id, task_id, ...taskToPatch }) => ({
+        url: `api/users/${id}/sections/${section_id}/tasks/${task_id}`,
+        method: 'PATCH',
+        body: taskToPatch
+      })
+    }),
+
+    postSections: builder.mutation<Section, { id: number }>({
+      query: ({ id, ...section_Name }) => ({
+        url: `api/users/${id}/sections/`,
+        method: 'POST',
+        body: section_Name
+      })
+    }),
+    postTasks: builder.mutation<Task, { id: number, section_id: number }>({
+      query: ({ section_id, id, ...task_name }) => ({
+        url: `api/users/${id}/sections/${section_id}/tasks`,
+        method: 'POST',
+        body: task_name
+      })
+    }),
+
     getUserById: builder.query<User, User>({
       query: ({ user_id }) => `api/users/${user_id}`,
     }),
@@ -64,11 +84,11 @@ export const kanbanApi = createApi({
         url: `api/users/${user_id}/sections/${section_id}/tasks/${task_id}`,
         method: 'DELETE',
       })
-    })
+    }),
   })
 })
 
 
-export const { useGetUsersQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation, useCreateTaskMutation, useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
+export const { useGetUsersQuery, useGetTasksQuery, useGetTaskQuery, useCreateSectionMutation, useCreateTaskMutation,usePatchSectionsMutation, usePatchTasksMutation, usePostSectionsMutation, usePostTasksMutation ,useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
 
 export default kanbanApi;
