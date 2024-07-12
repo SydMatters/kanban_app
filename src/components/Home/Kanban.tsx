@@ -55,12 +55,12 @@ function Kanban() {
     <div
       className="
         flex
-        min-h-screen
         w-full
         items-center
         overflow-x-auto
         overflow-y-hidden
-        px-[80px]
+        px-[25px]
+        py-2
     "
     >
       <DndContext
