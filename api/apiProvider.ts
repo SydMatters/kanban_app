@@ -14,11 +14,11 @@ export const kanbanApi = createApi({
         body: { email, password }
       })
     }),
-    register: builder.mutation<User, { name: string,email: string, password: string }>({
-      query: ({ name, email, password }) => ({
+    register: builder.mutation<User, { username: string,email: string, password: string }>({
+      query: ({ username, email, password }) => ({
         url: 'register',
         method: 'POST',
-        body: {name, email, password}
+        body: {username, email, password}
       })
     }),
     logout: builder.mutation<User, void>({

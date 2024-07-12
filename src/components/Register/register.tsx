@@ -39,10 +39,11 @@ export default function Register() {
     
     console.log('Form submitted with data:', datas);
 
-    const { name, email, password } = datas;
+    const { username, email, password } = datas;
 
     try {
-       data({ name, email, password }).unwrap();
+       data({ username, email, password }).unwrap();
+       
        console.log('Registered successfully!');
     } catch (err) {
       console.error('Failed to register:', err);
