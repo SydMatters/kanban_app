@@ -60,7 +60,7 @@ function Kanban() {
         items-center
         overflow-x-auto
         overflow-y-hidden
-        px-[40px]
+        px-[80px]
     "
     >
       <DndContext

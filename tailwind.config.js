@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "mainBackgroundColor": '#db277711',
-        "columnBackgroundColor": "#db277799",
+        "mainBackgroundColor": '#db277733',
+        "columnBackgroundColor": "#db277788",
       }
     },
   },

@@ -147,7 +147,7 @@ function ColumnContainer({
             deleteColumn(column.id);
           }}
           className="
-            stroke-gray-500
+            stroke-gray-950
             hover:stroke-white
             hover:bg-columnBackgroundColor
             rounded
