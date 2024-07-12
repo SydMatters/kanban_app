@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '@/components/Home/navBar';
-import SideBar from '@/components/Home/sideBar';
+import SideBar from '@/components/Home/SideBar';
 import Header from '@/components/Home/Header';
 
 const Home = () => {
