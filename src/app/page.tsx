@@ -1,16 +1,20 @@
-import Image from "next/image";
-import Register from "../components/Register/Register";
-import Login from "../components/Login/Login";
-import NavBar from "../components/Home/NavBar";
-import Footer from "../components/Home/Footer"
-import SideBar from "../components/Home/SideBar"
+'use client'
+import Login from '../components/Login/login'
 
+import { useGetUsersQuery } from "../../api/apiProvider";
 
 export default function Home() {
+
+  const { data, error, isLoading, isFetching } = useGetUsersQuery();
+
+  if (isLoading || isFetching) return <div>loading</div>
+  if (error) return <div>Error</div>
+  console.log();
+
   return (
-   <main>
-    
-    {/* <Register /> */}
-   </main>
+
+    <main>
+      <Login />
+    </main>
   );
 }
