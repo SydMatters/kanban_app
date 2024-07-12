@@ -1,16 +1,16 @@
 
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/Button"
-import { Label } from "@/components/ui/Label"
-import { Input } from "@/components/ui/Input"
-import { Textarea } from "@/components/ui/textarea"
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogFooter } from "@/components/ui/Dialog"
+import { Button } from '../ui/Button'
+import { Label } from '../ui/Label'
+import { Input } from '../ui/Input'
+import { Textarea } from '../ui/TextTarea'
 
 
 export default function Profile() {
     return (
-      <Dialog className="">
+      <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">Edit Profile</Button>
+          <Button>Profile</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>

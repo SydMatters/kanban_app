@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import MoonIcon from "../../icons/moonIcon"
+import MoonIcon from "../../icons/MoonIcon"
 
 export default function NavBar() {
   return (

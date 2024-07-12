@@ -1,13 +1,13 @@
 "use client"
 import Link from "next/link"
-import KanbanIcon from "../../icons/kanbanIcon"
-import UserIcon from "../../icons/userIcon"
-import LogoutIcon from "../../icons/logoutIcon"
-import Profile from "@/components/Profile/Profile";
+import KanbanIcon from "../../icons/KanbanIcon"
+import UserIcon from "../../icons/UserIcon"
+import LogoutIcon from "../../icons/LogoutIcon"
+import Profile from "../Profile/Profile";
 
 export default function SideBar() {
   return (
-    <div className="flex h-full w-60 ">
+    <div className="flex h-screen w-60 ">
       <aside className="flex h-full  w-60 flex-col items-start justify-between border-r bg-background p-4 shadow-md">
         <nav className="flex flex-col items-start gap-2 w-full">
           <Link
