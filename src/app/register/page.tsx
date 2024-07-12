@@ -1,7 +1,7 @@
 import React from 'react';
 import Register from '../../components/Register/Register'
 
- const RegisterPage= () => {
+const RegisterPage= () => {
     return (
         <div>
             <Register />

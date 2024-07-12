@@ -19,7 +19,7 @@ export default function Login() {
             <Input id="password" type="password" placeholder="Enter your password" />
           </div>
           <Button className="text-white bg-pink-600 w-full">Log in</Button>
-          <div className="w-full flex justify-center"><a href="/register">Register</a></div>
+          <div className="w-full flex justify-center"><a href="/Register">Register</a></div>
         </div> 
         <p className="text-center text-sm text-muted-foreground">
           By clicking continue, you agree to our{" "}

@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from '@/components/Home/navBar';
-import SideBar from '@/components/Home/SideBar';
-import Header from '@/components/Home/Header';
+import NavBar from '../../components/Home/NavBar';
+import SideBar from '../../components/Home/SideBar';
+import Header from '../../components/Home/Header';
 
 const Home = () => {
     return (
