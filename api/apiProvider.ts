@@ -25,6 +25,22 @@ export const kanbanApi = createApi({
             })
         }),
 
+        postSections: builder.mutation<Section, { id: number }>({
+            query: ({id, ...section_Name}) => ({
+                url: `api/users/${id}/sections/`,
+                method: 'POST',
+                body: section_Name 
+            })
+        }),
+        
+        postTasks: builder.mutation<Task, { id: number, section_id: number }>({
+            query: ({section_id, id, ...task_name}) => ({
+                url: `api/users/${id}/sections/${section_id}/tasks`,
+                method: 'POST',
+                body: task_name
+            })
+        }),
+
         getUserById: builder.query<User, User>({
             query: ({user_id}) => `api/users/${user_id}`,
         }),
