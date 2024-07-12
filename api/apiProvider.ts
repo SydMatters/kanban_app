@@ -26,10 +26,25 @@ export const kanbanApi = createApi({
 
         getSectionById: builder.query<User, User & Section>({
             query: ({user_id, section_id}) => `api/users/${user_id}/sections/${section_id}`,
+        }),
+
+        deleteSection: builder.mutation<Section & User, Section & User>({
+            query: ({user_id, section_id}) => ({
+                url: `api/users/${user_id}/sections/${section_id}`, 
+                method:'DELETE',
+            })
+        }),
+
+        deleteTask: builder.mutation<Section & User & Task, Section & User & Task>({
+            query: ({user_id, section_id, task_id}) => ({
+                url: `api/users/${user_id}/sections/${section_id}/tasks/${task_id}`, 
+                method:'DELETE',
+            })
         })
-        })
+
+        }),       
 })
  
-export const { useGetUsersQuery } = kanbanApi;
+export const { useGetUsersQuery, useGetUserByIdQuery, useGetSectionsQuery, useGetSectionByIdQuery, useDeleteSectionMutation, useDeleteTaskMutation } = kanbanApi;
 
 export default kanbanApi;
