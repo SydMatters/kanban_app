@@ -57,7 +57,6 @@ function Kanban() {
         flex
         min-h-screen
         w-full
-        items-center
         overflow-x-auto
         overflow-y-hidden
         px-[80px]

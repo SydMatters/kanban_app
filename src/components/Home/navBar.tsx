@@ -1,5 +1,4 @@
 "use client"
-import MoonIcon from "@/icons/moonIcon";
 import Link from "next/link"
 
 export default function NavBar() {
@@ -8,7 +7,6 @@ export default function NavBar() {
       <Link href="#" className="flex items-center space-x-2 w-full justify-between"> 
         <span className="text-lg font-medium">Kanban app</span>
         <div className="flex justify-between" /> 
-        <MoonIcon />
       </Link>
     </header>
   );

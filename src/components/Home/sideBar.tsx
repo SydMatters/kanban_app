@@ -7,7 +7,7 @@ import UserIcon from "@/icons/userIcon";
 
 export default function SideBar() {
   return (
-    <div className="flex h-full w-60 ">
+    <div className="flex h-screen w-60 ">
       <aside className="flex h-full  w-60 flex-col items-start justify-between border-r bg-background p-4 shadow-md">
         <nav className="flex flex-col items-start gap-2 w-full">
           <Link
@@ -16,7 +16,7 @@ export default function SideBar() {
             prefetch={false}
           >
             <KanbanIcon/>
-            <span>Kanban</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;Kanban</span>
           </Link>
           <Link
             href="#"
@@ -32,7 +32,7 @@ export default function SideBar() {
             prefetch={false}
           > 
             <LogOutIcon />
-            <span>Logout</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;Logout</span>
           </Link>
           
         </nav>

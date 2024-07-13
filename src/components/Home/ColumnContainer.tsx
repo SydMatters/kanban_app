@@ -59,16 +59,15 @@ function ColumnContainer({
         ref={setNodeRef}
         style={style}
         className="
-      bg-columnBackgroundColor
+      bg-mainBackgroundColor
       opacity-40
-      border-2
-      border-pink-500
       w-[350px]
       h-[500px]
       max-h-[500px]
       rounded-md
       flex
       flex-col
+      border-columnBackgroundColor border-2
       "
       ></div>
     );
@@ -79,7 +78,7 @@ function ColumnContainer({
       ref={setNodeRef}
       style={style}
       className="
-  bg-columnBackgroundColor
+  bg-mainBackgroundColor
   w-[350px]
   h-[500px]
   max-h-[500px]
@@ -103,8 +102,6 @@ function ColumnContainer({
       rounded-b-none
       p-3
       font-bold
-      border-columnBackgroundColor
-      border-4
       flex
       items-center
       justify-between
@@ -128,7 +125,7 @@ function ColumnContainer({
           {!editMode && column.title}
           {editMode && (
             <input
-              className="bg-black focus:border-rose-500 border rounded outline-none px-2"
+              className="bg-gray focus:border-rose-500 border rounded outline-none px-2"
               value={column.title}
               onChange={(e) => updateColumn(column.id, e.target.value)}
               autoFocus
@@ -159,7 +156,7 @@ function ColumnContainer({
         </button>
       </div>
 
-      <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto">
+      <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-auto overflow-y-auto relative">
         <SortableContext items={tasksIds}>
           {tasks.map((task) => (
             <TaskCard
