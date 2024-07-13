@@ -6,8 +6,9 @@ import { Input } from '../ui/input';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { toast } from 'react-hot-toast';
 
-
+import { useLoginMutation } from "../../../api/apiProvider";
 
 // Definición de userSchema (verifica que esto esté en tu archivo de validaciones)
 export const userSchema = z.object({
@@ -21,13 +22,31 @@ export const userSchema = z.object({
 
 
 export default function Login() {
+
+  const [data,{isLoading}] = useLoginMutation();
+
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(userSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log('Form submitted with data:', data);  // Añadido mensaje para depuración
-    // Aquí puedes agregar la lógica para manejar el inicio de sesión
+  const onSubmit = (datas) => {
+
+    console.log('Form submitted with data:', datas);
+
+    const { email, password } = datas;
+
+    try {
+      data({ email, password }).unwrap()
+      .then(() => {
+        toast.success('Login successfully!');
+      })
+      .catch((err) => {
+        console.error('Failed to register:', err);
+      });
+    } catch (err) {
+       toast.error('Failed to register: ' + err.message);
+    }
+
   };
 
   return (

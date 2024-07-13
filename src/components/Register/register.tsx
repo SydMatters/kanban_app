@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { useRegisterMutation } from "../../../api/apiProvider";
-
+import { toast } from 'react-hot-toast';
 
 
 
@@ -42,7 +42,13 @@ export default function Register() {
     const { username, email, password } = datas;
 
     try {
-       data({ username, email, password }).unwrap();
+       data({ username, email, password }).unwrap().
+       then(() => {
+         toast.success('Registered successfully!');
+       })
+       .catch((err) => {
+         toast.error('Failed to register:', err);
+       });
        
        console.log('Registered successfully!');
     } catch (err) {
